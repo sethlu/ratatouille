@@ -21,7 +21,7 @@
  *
  */
 
-public class BindingPlayground {
+class BindingPlayground {
 
     static class Animal {
         void speak() {
