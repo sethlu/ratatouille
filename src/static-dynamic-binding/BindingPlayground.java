@@ -73,8 +73,6 @@ class BindingPlayground {
         Cat catRef;
         Tiger tigerRef;
 
-        // Testing dynamic binding
-
         // Test suite 1
 
         animalRef = new Animal();
