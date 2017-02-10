@@ -13,7 +13,7 @@ def test1():
         # NB: UnboundLocalError will be raised
         # print(a)
 
-        a = 2 # Does not affect `a` in the frame of `foo()`
+        a = 2 # Does not affect `a` in the frame of `test1()`
         print(a)
 
     a = 1
