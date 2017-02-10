@@ -104,13 +104,17 @@ class ComparablePlayground {
 
         System.out.println("\nTest suite 1\n");
         displayStaticAnimalType(more(l1, e1));
+        // Output: Animal
         displayAnimal(more(l1, e1));
+        // Output: Color: grey; weight: 100
 
         // Test suite 2
 
         System.out.println("\nTest suite 2\n");
         displayStaticAnimalType(more(l1, l2));
+        // Output: Lion
         displayAnimal(more(l1, l2));
+        // Color: yellow; weight: 30
 
         // Test suite 3
 
@@ -125,15 +129,28 @@ class ComparablePlayground {
 
         System.out.println("Before moving:\nBox A:");
         displayBox(boxA);
+        // Output: -----------
+        //         Color: yellow; weight: 10
+        //         Color: yellow; weight: 30
+        //         Color: grey; weight: 100
+        //         -----------
         System.out.println("Box B:");
         displayBox(boxB);
+        // Output: -----------
+        //         -----------
 
         moveAnimals(boxA, boxB);
 
         System.out.println("\nAfter moving:\nBox A:");
         displayBox(boxA);
+        // Output: -----------
+        //         -----------
         System.out.println("Box B:");
         displayBox(boxB);
+        // Output: -----------
+        //         Color: yellow; weight: 10
+        //         Color: yellow; weight: 30
+        //         Color: grey; wei
 
     }
 }
