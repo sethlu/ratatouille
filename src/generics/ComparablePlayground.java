@@ -95,7 +95,7 @@ class ComparablePlayground {
         }
     }
 
-    public static void main(String... args) {
+    public static void main(String[] args) {
         Lion l1 = new Lion(10);
         Lion l2 = new Lion(30);
         Elephant e1 = new Elephant(100);
