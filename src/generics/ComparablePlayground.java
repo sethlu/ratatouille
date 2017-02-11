@@ -3,6 +3,8 @@
  * @author Zhuo Lu
  */
 
+package generics;
+
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -150,7 +152,8 @@ class ComparablePlayground {
         // Output: -----------
         //         Color: yellow; weight: 10
         //         Color: yellow; weight: 30
-        //         Color: grey; wei
+        //         Color: grey; weight: 100
+        //         -----------
 
     }
 }

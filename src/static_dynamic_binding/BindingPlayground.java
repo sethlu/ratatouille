@@ -21,6 +21,8 @@
  *
  */
 
+package static_dynamic_binding;
+
 class BindingPlayground {
 
     static class Animal {

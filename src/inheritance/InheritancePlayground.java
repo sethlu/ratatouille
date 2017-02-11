@@ -4,13 +4,15 @@
  *
  * See:
  *
- * - src/static-dynamic-binding/BindingPlayground
+ * - src/static_dynamic_binding/BindingPlayground
  *   - A few examples on the static and dynamic binding in Java may be found there.
  * - http://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
  *   - Good clarification on that package-private members from a super class could be inherited into a subclass under a same package--doesn't have to be protected to do so.
  * - https://docs.oracle.com/javase/tutorial/java/IandI/override.html
  *   - Useful clarification on overriding and hiding with respect to subclass/superclass instance/static methods towards the end of the pagegit .
  */
+
+package inheritance;
 
 class InheritancePlayground {
 
