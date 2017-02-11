@@ -58,9 +58,9 @@ class ComparablePlayground {
         System.out.println("Elephant");
     }
 
-    private static <T extends Animal> void displayBox(Collection<T> as) {
+    private static void displayBox(Collection<Animal> as) {
         System.out.println("-----------");
-        for (T a : as) {
+        for (Animal a : as) {
             displayAnimal(a);
         }
         System.out.println("-----------");
