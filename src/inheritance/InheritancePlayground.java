@@ -4,8 +4,12 @@
  *
  * See:
  *
- * static-dynamic-binding/BindingPlayground
- * - A few examples on the static and dynamic binding in Java may be found there.
+ * - src/static-dynamic-binding/BindingPlayground
+ *   - A few examples on the static and dynamic binding in Java may be found there.
+ * - http://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+ *   - Good clarification on that package-private members from a super class could be inherited into a subclass under a same package--doesn't have to be protected to do so.
+ * - https://docs.oracle.com/javase/tutorial/java/IandI/override.html
+ *   - Useful clarification on overriding and hiding with respect to subclass/superclass instance/static methods towards the end of the pagegit .
  */
 
 class InheritancePlayground {
@@ -24,6 +28,8 @@ class InheritancePlayground {
 
     static class Robot {
 
+        // Test suite 1
+
         /** Model of the robot series */
         static String model = "M001";
 
@@ -33,12 +39,32 @@ class InheritancePlayground {
         /** The color of the robot */
         String color = "grey";
 
-        public void setUniversalModel(String m) {
+        // Test suite 2-a
+
+        void setUniversalModel(String m) {
             model = m;
+        }
+
+        // Test suite 3
+
+        private String nickName = "Roooooooooob";
+
+        /**
+         *
+         * Note: Only class method has access to private member
+         */
+        void setNickName(String name) {
+            nickName = name;
+        }
+
+        String nickName() {
+            return nickName;
         }
     }
 
     static class SoundEnabledRobot extends Robot implements Alarm {
+
+        // Test suite 1
 
         /**
          * Model of this robot series
@@ -52,25 +78,37 @@ class InheritancePlayground {
         /** Not just able to make noise, its color looks good too */
         String color = "yellow";
 
+        @Override
         public void alarm() {
             System.out.println(className + " now making noise!!!");
         }
 
-        public void setUniversalModelAlt(String m) {
+        // Test 2-b
+
+        void setUniversalModelAlt(String m) {
             model = m;
         }
     }
 
     public static void main(String[] args) {
+        testSuite1();
+        testSuite2();
+        testSuite3();
+    }
+
+    static void testSuite1() {
         Robot r = new Robot();
         SoundEnabledRobot ser = new SoundEnabledRobot();
 
         // Test suite 1
-
         System.out.println("\nTest suite 1\n");
 
         // r.alarm(); // This will not compile as `alarm()` couldn't be resolved in the class `Robot`, the static type
         ser.alarm();
+    }
+
+    static void testSuite2() {
+        SoundEnabledRobot ser = new SoundEnabledRobot();
 
         // Test suite 2-a
 
@@ -107,6 +145,20 @@ class InheritancePlayground {
         // Output: Robot.model: M003
         System.out.println("SoundEnabledRobot.model: " + SoundEnabledRobot.model);
         // Output: SoundEnabledRobot.model: M004
+    }
 
+    static void testSuite3() {
+        Robot r = new Robot();
+        SoundEnabledRobot ser = new SoundEnabledRobot();
+
+        // Test suite 3
+        System.out.println("\nTest suite 3\n");
+
+        System.out.println("Before setting nickname of instance: " + ser.nickName());
+        // Output: Before setting nickname of instance: Roooooooooob
+        ser.setNickName("Rob");
+        System.out.println("After setting nickname of instance: " + ser.nickName());
+        // Output: Before setting nickname of instance: Rob
+        // Note: Though the `nickName` is private in the `Robot` class, thus not inherited in `SoundEnabledRobot`, the setter/getter defined in the `Robot` class provides access to set and get the privately accessible value.
     }
 }
