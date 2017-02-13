@@ -71,63 +71,63 @@ class BindingPlayground {
 
     public static void main(String[] args) {
         BindingPlayground playground = new BindingPlayground();
-        Animal animalRef;
-        Cat catRef;
-        Tiger tigerRef;
+        Animal animal;
+        Cat cat;
+        Tiger tiger;
 
         // Test suite 1
 
-        animalRef = new Animal();
-        // catRef = new Animal(); // NB: Cannot do this
-        // tigerRef = new Animal(); // NB Cannot do this
+        animal = new Animal();
+        // cat = new Animal(); // NB: Cannot do this
+        // tiger = new Animal(); // NB Cannot do this
 
         System.out.println("\nTest suite 1-a\n");
-        animalRef.speak();
+        animal.speak();
 
         System.out.println("\nTest suite 1-b\n");
-        speak(animalRef);
+        speak(animal);
 
         System.out.println("\nTest suite 1-c\n");
-        playground.speakNonStatic(animalRef);
+        playground.speakNonStatic(animal);
 
         // Test suite 2
 
-        animalRef = new Cat();
-        catRef = new Cat();
-        // tigerRef = new Cat(); // NB: Cannot do this
+        animal = new Cat();
+        cat = new Cat();
+        // tiger = new Cat(); // NB: Cannot do this
 
         System.out.println("\nTest suite 2-a\n");
-        animalRef.speak();
-        catRef.speak();
+        animal.speak();
+        cat.speak();
 
         System.out.println("\nTest suite 2-b\n");
-        speak(animalRef);
-        speak(catRef);
+        speak(animal);
+        speak(cat);
 
         System.out.println("\nTest suite 2-c\n");
-        playground.speakNonStatic(animalRef);
-        playground.speakNonStatic(catRef);
+        playground.speakNonStatic(animal);
+        playground.speakNonStatic(cat);
 
         // Test suite 3
 
-        animalRef = new Tiger();
-        catRef = new Tiger();
-        tigerRef = new Tiger();
+        animal = new Tiger();
+        cat = new Tiger();
+        tiger = new Tiger();
 
         System.out.println("\nTest suite 3-a\n");
-        animalRef.speak();
-        catRef.speak();
-        tigerRef.speak();
+        animal.speak();
+        cat.speak();
+        tiger.speak();
 
         System.out.println("\nTest suite 3-b\n");
-        speak(animalRef);
-        speak(catRef);
-        speak(tigerRef);
+        speak(animal);
+        speak(cat);
+        speak(tiger);
 
         System.out.println("\nTest suite 3-c\n");
-        playground.speakNonStatic(animalRef);
-        playground.speakNonStatic(catRef);
-        playground.speakNonStatic(tigerRef);
+        playground.speakNonStatic(animal);
+        playground.speakNonStatic(cat);
+        playground.speakNonStatic(tiger);
 
         // Test suite 4
 
