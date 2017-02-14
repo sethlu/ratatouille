@@ -30,7 +30,7 @@ The static type of a variable, especially when coupled with a dynamic subclass i
 
 - **Looking up an instance field**
     
-    When hiding field, the destination may be different depending on the static type even for pointing to a same object.
+    When hiding field, the content of a field may be different depending on the static type of a instance even for pointing to a same object.
 
     See: [FieldHiding.java](FieldHiding.java)
 
