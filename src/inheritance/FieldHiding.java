@@ -1,31 +1,31 @@
 /**
- * An example with field hiding in Java.
+ * An example with field hiding in Java: That subclass may hide superclass's fields.
  * @author Zhuo Lu
  */
 
 package inheritance;
 
+class Insect {
+
+    /**
+     * The age of an insect in integer.
+     */
+    public int age = 0;
+}
+
+class Beetle extends Insect {
+
+}
+
+class LadyBug extends Beetle {
+
+    /**
+     * Lady bugs are special. They have doubly-typed ages.
+     */
+    public double age = 0.0;
+}
+
 public class FieldHiding {
-
-    static class Insect {
-
-        /**
-         * The age of an insect in integer.
-         */
-        public int age = 0;
-    }
-
-    static class Beetle extends Insect {
-
-    }
-
-    static class LadyBug extends Beetle {
-
-        /**
-         * Lady bugs are special. They have doubly-typed ages.
-         */
-        public double age = 0.0;
-    }
 
     public static void main(String[] args) {
         testSuite1();
