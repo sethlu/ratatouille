@@ -8,41 +8,41 @@ package generics;
 import java.util.Collection;
 import java.util.LinkedList;
 
+class Animal implements Comparable<Animal> {
+    /** Weight of an animal */
+    int weight;
+
+    /** Color of an animal */
+    String color;
+
+    Animal(int weight, String color) {
+        this.weight = weight;
+        this.color = color;
+    }
+
+    @Override
+    public int compareTo(Animal o) {
+        return this.weight - o.weight;
+    }
+}
+
+class Lion extends Animal {
+
+    Lion(int weight) {
+        // If using `Animal` instead of super, it cannot be resolved as a method
+        super(weight, "yellow");
+    }
+}
+
+class Elephant extends Animal {
+
+    Elephant(int weight) {
+        // If using `Animal` instead of super, it cannot be resolved as a method
+        super(weight, "grey");
+    }
+}
+
 class ComparablePlayground {
-
-    static class Animal implements Comparable<Animal> {
-        /** Weight of an animal */
-        int weight;
-
-        /** Color of an animal */
-        String color;
-
-        Animal(int weight, String color) {
-            this.weight = weight;
-            this.color = color;
-        }
-
-        @Override
-        public int compareTo(Animal o) {
-            return this.weight - o.weight;
-        }
-    }
-
-    static class Lion extends Animal {
-
-        Lion(int weight) {
-            // If using `Animal` instead of super, it cannot be resolved as a method
-            super(weight, "yellow");
-        }
-    }
-
-    static class Elephant extends Animal {
-
-        Elephant(int weight) {
-            // If using `Animal` instead of super, it cannot be resolved as a method
-            super(weight, "grey");
-        }
-    }
 
     static void displayAnimal(Animal a) {
         System.out.println("Color: " + a.color + "; weight: " + a.weight);
@@ -98,29 +98,44 @@ class ComparablePlayground {
     }
 
     public static void main(String[] args) {
+        testSuite1();
+        testSuite2();
+        testSuite3();
+    }
+
+    static void testSuite1() {
+        // Test suite 1
+        System.out.println("\nTest suite 1\n");
+
         Lion l1 = new Lion(10);
-        Lion l2 = new Lion(30);
         Elephant e1 = new Elephant(100);
 
-        // Test suite 1
-
-        System.out.println("\nTest suite 1\n");
         displayStaticAnimalType(more(l1, e1));
         // Output: Animal
         displayAnimal(more(l1, e1));
         // Output: Color: grey; weight: 100
+    }
 
+    static void testSuite2() {
         // Test suite 2
-
         System.out.println("\nTest suite 2\n");
+
+        Lion l1 = new Lion(10);
+        Lion l2 = new Lion(30);
+
         displayStaticAnimalType(more(l1, l2));
         // Output: Lion
         displayAnimal(more(l1, l2));
         // Color: yellow; weight: 30
+    }
 
+    static void testSuite3() {
         // Test suite 3
-
         System.out.println("\nTest suite 3\n");
+
+        Lion l1 = new Lion(10);
+        Lion l2 = new Lion(30);
+        Elephant e1 = new Elephant(100);
 
         LinkedList<Animal> boxA = new LinkedList<>();
         LinkedList<Animal> boxB = new LinkedList<>();
@@ -154,6 +169,5 @@ class ComparablePlayground {
         //         Color: yellow; weight: 30
         //         Color: grey; weight: 100
         //         -----------
-
     }
 }
