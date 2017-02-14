@@ -11,33 +11,33 @@
 
 package generics;
 
-class GenericsPlayground {
+class Vehicle implements Comparable<Vehicle> {
 
-    static class Vehicle implements Comparable<Vehicle> {
+    /** Weight of the vehicle */
+    int weight;
 
-        /** Weight of the vehicle */
-        int weight;
-
-        @Override
-        public int compareTo(Vehicle o) {
-            return weight - o.weight;
-        }
-
-        Vehicle() {
-            this(10);
-        }
-
-        Vehicle(int w) {
-            weight = w;
-        }
+    @Override
+    public int compareTo(Vehicle o) {
+        return weight - o.weight;
     }
 
-    static class Car extends Vehicle {
-
-        Car(int w) {
-            super(w);
-        }
+    Vehicle() {
+        this(10);
     }
+
+    Vehicle(int w) {
+        weight = w;
+    }
+}
+
+class Car extends Vehicle {
+
+    Car(int w) {
+        super(w);
+    }
+}
+
+class GenericsScale {
 
     static void displayVehicle(Vehicle o) {
         System.out.println("Vehicle: " + o.weight);
